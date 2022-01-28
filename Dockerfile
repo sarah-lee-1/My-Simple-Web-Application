@@ -1,8 +1,9 @@
-# Define base language
-FROM alpine
+FROM node:alpine
 
-# install dependancies
-RUN apk add --update redis
+WORKDIR /usr  
 
-# Entry point
-CMD ["redis-server"]
+COPY  ./ ./
+
+RUN npm install 
+
+CMD ["npm", "start"]
